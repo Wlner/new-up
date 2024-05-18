@@ -53,6 +53,7 @@ class ReservationForm extends Component
             $action = 'edit';
             $message = 'Successfully Updated';
         } else {
+           //  $data['status_id'] = 11;
             Reservation::create($data);
             $action = 'store';
             $message = 'Successfully Created';

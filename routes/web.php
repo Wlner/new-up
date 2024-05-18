@@ -19,6 +19,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Livewire\Authentication\RoleList;
 use App\Http\Livewire\Reservation\ReservationList;
 use App\Http\Livewire\Authentication\PermissionList;
+use App\Http\Livewire\Dead\DeadList;
 
 /*
 |--------------------------------------------------------------------------
@@ -60,6 +61,20 @@ Route::group(['middleware' => ['role:admin']], function () {
     Route::get('orders', OrderList::class);
     Route::get('reservations', ReservationList::class);
     Route::get('burials', BurialList::class);
+
+    Route::get('deads', DeadList::class);
+});
+
+Route::group(['middleware' => ['role:admin|secretary']], function () {
+
+});
+
+Route::group(['middleware' => ['role:admin|secretary|staff']], function () {
+
+});
+
+Route::group(['middleware' => ['role:admin|secretary|staff|customer']], function () {
+
 });
 
 require __DIR__.'/auth.php';

@@ -11,14 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('reservations', function (Blueprint $table) {
+        Schema::create('customers', function (Blueprint $table) {
             $table->id();
-            $table->string('Burial_name');
-            $table->string('date_birth');
-            $table->string('date_death');
-            $table->string('date_burial');
-            $table->string('family_contact_person');
-            $table->string('phone_number');
+            $table->string('first_name');
+            $table->string('middle_name');
+            $table->string('last_name');
+            $table->unsignedBigInteger('user_id')->nullable();
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }
@@ -28,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('reservations');
+        Schema::dropIfExists('customers');
     }
 };

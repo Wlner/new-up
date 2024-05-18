@@ -12,5 +12,10 @@ class Reservation extends Model
     public $guarded = [];
     protected $table = 'reservations';
     protected $primaryKey = 'id';
-    protected $fillable = ['Burial_name','date_birth','date_death','date_burial','family_contact_person','phone_number'];
+    protected $fillable = ['Burial_name','date_birth','date_death','date_burial','family_contact_person','phone_number', 'status_id'];
+
+    public function Status()
+    {
+        return $this->belongsto(Status::class, 'status_id', 'id');
+    }
 }
