@@ -36,9 +36,9 @@
                 </li>
 
 				<li>
-                    <a href="burials">
+                    <a href="deads">
                         <span class="menu-side"><i class="fa fa-cross"></i></span>
-                        <span>Burial</span>
+                        <span>Dead</span>
                     </a>
                 </li>
 
@@ -65,16 +65,16 @@
 
                     <ul style="display: none;">
                         <li><a href="/user">Users</a></li>
-						<li><a href="/visitors">Visitors</a></li>
+						
                     </ul>
                 </li>
-                <li class="submenu">
+                {{-- <li class="submenu">
                     <a href="#"><i class="fa fa-user-shield" style="color: white;"></i> <span style="color: white;">Authentication</span> <span class="menu-arrow"></span></a>
                     <ul style="display: none;">
                         <li><a href="/role"><span style="color: white;">Role</span></a></li>
                         <li><a href="/permission"><span style="color: white;">Permission</span></a></li>
                     </ul>
-                </li>
+                </li> --}}
 
 				
 

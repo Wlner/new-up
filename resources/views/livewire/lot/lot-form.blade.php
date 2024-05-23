@@ -25,6 +25,20 @@
 					</div>
 				</div>
 			</div>
+
+			<div class="mb-3 row">
+				<div class="col-md-6">
+					<label for="block_id" class="form-label">Block<span class="login-danger">*</span></label>
+					<select id="block_id" class="form-select" wire:model="block_id">
+						<option value="" selected>Select a Block</option>
+						@foreach ($blocks as $block)
+							<option value="{{ $block->id }}">{{ $block->description }}</option>
+						@endforeach
+					</select>
+				</div>
+			</div>
+		</div> 
+
 			<div class="modal-footer">
 				<button type="submit" class="btn btn-primary">Save</button>
 			</div>

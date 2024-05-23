@@ -11,11 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        
-            Schema::create('lots', function (Blueprint $table) {
-                $table->id();
-                $table->string('description');
-                $table->timestamps();
+        Schema::table('deads', function (Blueprint $table) {
+            $table->unsignedBigInteger('user_id')->nullable()->after('id');
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
@@ -24,6 +22,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('lots');
+        Schema::table('deads', function (Blueprint $table) {
+            $table->dropColumn('user_id');
+        });
     }
 };

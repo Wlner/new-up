@@ -55,6 +55,7 @@
                                     <th>Date of Birth</th>
                                     <th>Date of Death</th>
                                     <th>Date of Burial</th>
+                                    <th>worker</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -69,7 +70,9 @@
                                         <td>{{ $dead->Lot->description ?? ''}}</td>
                                         <td>{{ $dead->dt_birth ?? ''}}</td>
                                         <td>{{ $dead->dt_death ?? ''}}</td>
-                                        <td>{{ $dead->date_burial ?? ''}}</td>
+                                        <td>{{ $dead->dt_burial ?? ''}}</td>
+                                        <td>{{ $dead->user->first_name ?? ''}}</td>
+                                        
 
                                         <td class="text-center">
                                             <div class="btn-group" role="group">

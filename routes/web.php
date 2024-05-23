@@ -3,23 +3,24 @@
 use App\Http\Livewire\LOt\LotList;
 use App\Http\Livewire\Map\MapList;
 
+use App\Http\Livewire\Dead\DeadList;
 use App\Http\Livewire\Type\TypeList;
 use App\Http\Livewire\User\UserList;
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\Block\BlockList;
 use App\Http\Livewire\Order\OrderList;
+use App\Http\Controllers\MapController;
 use App\Http\Livewire\Burial\BurialList;
+
+
 use App\Http\Livewire\Visitor\VisitorList;
 use App\Http\Controllers\ProfileController;
 
-
 use App\Http\Livewire\Deceased\DeceasedList;
 use App\Http\Controllers\DashboardController;
-
 use App\Http\Livewire\Authentication\RoleList;
 use App\Http\Livewire\Reservation\ReservationList;
 use App\Http\Livewire\Authentication\PermissionList;
-use App\Http\Livewire\Dead\DeadList;
 
 /*
 |--------------------------------------------------------------------------
@@ -63,6 +64,8 @@ Route::group(['middleware' => ['role:admin']], function () {
     Route::get('burials', BurialList::class);
 
     Route::get('deads', DeadList::class);
+
+
 });
 
 Route::group(['middleware' => ['role:admin|secretary']], function () {
@@ -70,7 +73,11 @@ Route::group(['middleware' => ['role:admin|secretary']], function () {
 });
 
 Route::group(['middleware' => ['role:admin|secretary|staff']], function () {
-
+    Route::get('/dashboard', [DashboardController::class, 'index']);
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::get('deads', DeadList::class);
 });
 
 Route::group(['middleware' => ['role:admin|secretary|staff|customer']], function () {

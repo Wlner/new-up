@@ -10,7 +10,7 @@ class Lot extends Model
     use HasFactory;
     public $guarded = [];
     protected $table = 'lots';
-    protected $primaryKey = 'Id';
+    protected $primaryKey = 'id';
     protected $fillable = ['description', 'block_id'];
 
     public function Block(){

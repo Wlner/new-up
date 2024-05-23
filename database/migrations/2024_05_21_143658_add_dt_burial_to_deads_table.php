@@ -11,11 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        
-            Schema::create('lots', function (Blueprint $table) {
-                $table->id();
-                $table->string('description');
-                $table->timestamps();
+        Schema::table('deads', function (Blueprint $table) {
+            $table->string('dt_burial');
         });
     }
 
@@ -24,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('lots');
+        Schema::table('deads', function (Blueprint $table) {
+            //
+        });
     }
 };

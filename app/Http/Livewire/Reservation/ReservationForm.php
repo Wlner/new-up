@@ -7,7 +7,7 @@ use App\Models\Reservation;
 
 class ReservationForm extends Component
 {
-    public $reservationId, $Burial_name,$date_birth,$date_death,$date_burial,$family_contact_person,$phone_number;
+    public $reservationId, $first_name,$middle_name,$last_name,$date_birth,$date_death,$date_burial,$family_contact_person,$phone_number;
     public $action = '';  //flash
     public $message = '';  //flash
 
@@ -28,7 +28,9 @@ class ReservationForm extends Component
     {
         $this->reservationId = $reservationId;
         $reservation = Reservation::whereId($reservationId)->first();
-        $this->Burial_name = $reservation->Burial_name;
+        $this->first_name = $reservation->first_name;
+        $this->middle_name = $reservation->middle_name;
+        $this->last_name = $reservation->last_name;
         $this->date_birth = $reservation->date_birth;
         $this->date_death = $reservation->date_death;
         $this->date_burial = $reservation->date_burial;
@@ -40,7 +42,9 @@ class ReservationForm extends Component
     public function store()
     {
         $data = $this->validate([
-            'Burial_name' => 'required',
+            'first_name' => 'required',
+            'middle_name' => 'required',
+            'last_name' => 'required',
             'date_birth' => 'required',
             'date_death' => 'required',
             'date_burial' => 'required',

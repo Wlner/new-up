@@ -53,7 +53,7 @@ class DeadList extends Component
         if (empty($this->search)) {
             $deads  = Dead::all();
         } else {
-            $deads  = Dead::where('first_name', 'LIKE', '%' . $this->search . '%')->get();
+            $deads  = Dead::where('first_name','middle_name','last_name','lot_id','dt_birth','dt_death','user_id', 'LIKE', '%' . $this->search . '%')->get();
         }
 
         return view('livewire.dead.dead-list', [
